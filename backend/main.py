@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../frontend', static_url_path='')
 CORS(app)
 
 # Database Configuration
@@ -26,6 +26,17 @@ app.register_blueprint(twitch_bp, url_prefix='/api/twitch')
 app.register_blueprint(auth_bp, url_prefix='/api/auth')
 app.register_blueprint(commands_bp, url_prefix='/api/commands')
 app.register_blueprint(moderation_bp, url_prefix='/api/moderation')
+
+# Serve frontend files
+@app.route('/')
+def serve_index():
+    return send_from_directory(app.static_folder, 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    if os.path.isfile(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
+    return send_from_directory(app.static_folder, 'index.html')
 
 # Health check
 @app.route('/health', methods=['GET'])
