@@ -1,48 +1,90 @@
 # Snapshield - Multi-Platform Bot Management System
 
-A unified bot management dashboard for Discord and Twitch with advanced moderation, command management, and event tracking.
+A unified backend API for Discord and Twitch bot management with web dashboard integration.
+
+## 🌐 Access the Dashboard
+
+```
+http://localhost:5000
+```
 
 ## Features
 
 ### Discord Bot
-- User authentication & account linking
+- OAuth authentication
 - Moderation system (3-strike auto-ban)
 - Custom command management
-- Message/kick/ban logging
-- Multi-account support with default account routing
+- Comprehensive event logging
+- Multi-server support
 
 ### Twitch Bot
 - Streamer & bot account authentication
-- Follows and event tracking
-- Moderation system (3-strike auto-ban)
-- Custom command management
-- Permission-based commands (streamer, mod, chat, VIP)
+- Event tracking (follows, subs, raids, bits)
+- 3-strike moderation system
+- Custom commands with permission levels
 
-## Project Structure
+## Quick Start
 
-```
-snapshield/
-├── frontend/
-│   ├── pages/
-│   │   ├── dashboard.html
-│   │   ├── discord/
-│   │   ├── twitch/
-│   │   └── settings.html
-│   ├── css/
-│   ├── js/
-│   └── index.html
-├── backend/
-│   ├── discord_bot/
-│   ├── twitch_bot/
-│   ├── api/
-│   ├── database/
-│   └── config/
-├── requirements.txt
-└── main.py
+### Prerequisites
+- Python 3.10+
+- Discord Bot Token
+- Twitch Client ID & Secret
+
+### Installation
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure environment
+cp .env.example .env
+# Edit .env with your API tokens
+
+# Run the server
+python app.py
 ```
 
-## Getting Started
+### Environment Variables
 
-1. Install dependencies: `pip install -r requirements.txt`
-2. Configure Discord and Twitch API credentials
-3. Run the application: `python main.py`
+```env
+DISCORD_TOKEN=your_bot_token
+DISCORD_CLIENT_ID=your_client_id
+DISCORD_CLIENT_SECRET=your_client_secret
+TWITCH_CLIENT_ID=your_twitch_client_id
+TWITCH_CLIENT_SECRET=your_twitch_client_secret
+FLASK_ENV=development
+DATABASE_URL=sqlite:///snapshield.db
+```
+
+## API Endpoints
+
+### Authentication
+- `POST /api/auth/discord/login` - Initiate Discord OAuth
+- `POST /api/auth/twitch/login` - Initiate Twitch OAuth
+- `GET /api/auth/user` - Get current user info
+- `POST /api/auth/logout` - Logout
+
+### Commands
+- `GET /api/commands` - List all commands
+- `POST /api/commands` - Create command
+- `PUT /api/commands/<id>` - Update command
+- `DELETE /api/commands/<id>` - Delete command
+
+### Moderation
+- `GET /api/moderation/config` - Get moderation config
+- `POST /api/moderation/config` - Update config
+- `GET /api/moderation/logs` - Get moderation logs
+- `POST /api/moderation/strike` - Add strike
+
+## Database Models
+
+- `User` - User accounts
+- `DiscordAccount` - Linked Discord accounts
+- `TwitchAccount` - Linked Twitch accounts
+- `Command` - Custom commands
+- `UserStrike` - Strike records
+- `ModerationLog` - Action logs
+
+## License
+
+Proprietary - All rights reserved
