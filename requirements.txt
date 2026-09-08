@@ -1,0 +1,4 @@
+discord.py>=2.4.0
+PyQt6>=6.6.0
+pyinstaller>=6.3.0
+aiohttp>=3.9.0

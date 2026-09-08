@@ -1,0 +1,17 @@
+{
+  "twitch_client_id": "bxfs0obbxds8ulv59n8iz5utgphawn",
+  "twitch_client_secret": "n29cf2h45k1g9p0fhv7t20jg31710o",
+  "subscriptions": [
+    {
+      "id": "3a2f79f1-de13-4abb-9ab7-d24eaba15bb7",
+      "twitch_username": "snapgaurd",
+      "discord_channel_id": "1543759327175774307",
+      "role_id": "1543759320531869894",
+      "message_template": "",
+      "delete_on_end": true,
+      "is_live": false,
+      "last_stream_id": "317662474978",
+      "last_message_id": null
+    }
+  ]
+}
