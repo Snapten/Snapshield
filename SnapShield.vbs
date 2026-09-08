@@ -1,1 +1,0 @@
-CreateObject("Wscript.Shell").Run "py main.py", 0, False
