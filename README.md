@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="100" height="100" alt="snapshield" src="https://github.com/user-attachments/assets/accdea01-0ae6-47eb-8962-00e2e663ef4d" />
+  <img width="500" height="500" alt="snapshield" src="https://github.com/user-attachments/assets/accdea01-0ae6-47eb-8962-00e2e663ef4d" />
 </p>
 
 
