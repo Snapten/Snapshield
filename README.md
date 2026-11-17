@@ -6,12 +6,10 @@
 <p align="center">
 A powerful Windows desktop suite for Twitch streamers: overlays, alerts, moderation,
 channel points, giveaways, subathons, counters, music tools, overlay games with chat betting and more.
-Built with Python, PyQt6 and Twitch EventSub.
+Powered by Twitch EventSub.
 </p>
 
 <p align="center">
-  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.12+"></a>
-  <a href="https://www.riverbankcomputing.com/software/pyqt/"><img src="https://img.shields.io/badge/PyQt6-GUI-41CD52?style=for-the-badge&logo=qt&logoColor=white" alt="PyQt6"></a>
   <a href="https://dev.twitch.tv/docs/eventsub/"><img src="https://img.shields.io/badge/Twitch-EventSub-9146FF?style=for-the-badge&logo=twitch&logoColor=white" alt="Twitch EventSub"></a>
   <a href="https://www.microsoft.com/windows"><img src="https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"></a>
 </p>
@@ -294,44 +292,11 @@ Settings, data, logs and update files are stored in `%APPDATA%\SnapShield`, not 
 - A sidebar notice shows when an update is available
 - Update details are written to `updater.log`
 
-Release files are hosted on GitHub Releases, and the website serves only the small update manifest.
-
 ---
 
 ## 🔐 Staying Logged In
 
 SnapShield uses a public Twitch application and refreshes tokens silently in the background, so there are no forced disconnects every few hours.
-
----
-
-## 🏗️ Project Structure
-
-```
-SnapShield/
-├── bot/            # Twitch bot, EventSub, giveaway/subathon/counter/game engines
-├── ui/             # PyQt6 pages, theme and widgets
-├── config/         # Version, paths, Twitch/Discord/music/update settings
-├── assets/         # Images, sounds and overlay resources
-├── installer/      # Inno Setup script (SnapShield.iss)
-├── main.py
-├── build_release.py
-├── bump_version.py
-├── SnapShield.spec
-└── requirements.txt
-```
-
-### Building from source
-```bash
-pip install -r requirements.txt
-python main.py
-```
-
-### Releasing
-```bash
-python bump_version.py          # patch bump (or: minor / major / X.Y.Z)
-python build_release.py         # builds exe, update zip, first-install zip and manifest
-```
-Compile `installer/SnapShield.iss` with Inno Setup 6 to produce the installer.
 
 ---
 
@@ -347,7 +312,7 @@ Compile `installer/SnapShield.iss` with Inno Setup 6 to produce the installer.
 ---
 
 ## 🤝 Contributing
-Issues, feature ideas and pull requests welcome!
+Found a bug or have an idea? Issues and feature requests are welcome!
 
 ## 📜 License
 Copyright © Snapten. All Rights Reserved.
