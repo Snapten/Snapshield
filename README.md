@@ -5,7 +5,7 @@
 
 <p align="center">
 A powerful Windows desktop suite for Twitch streamers: overlays, alerts, moderation,
-channel points, giveaways, subathons, counters, music tools, overlay mini-games and more.
+channel points, giveaways, subathons, counters, music tools, overlay games with chat betting and more.
 Built with Python, PyQt6 and Twitch EventSub.
 </p>
 
@@ -35,12 +35,13 @@ SnapShield is a locally-hosted Twitch automation app for streamers who want powe
 ✅ Giveaways: random winners, spin-reel reveal, 8 overlay themes
 ✅ Subathon: extendable countdown clock
 ✅ Counters, timers and countdowns
-✅ Overlay games: Snake Invaders and SnapDungeon
-✅ Twitch Moderation
+✅ Live chat panel: read and reply as streamer or bot, with quick-action widgets
+✅ Overlay games: Snake Invaders, SnapFight and Horse Racing (with coin betting)
+✅ Twitch Moderation and global blacklist protection
 ✅ Discord Login: send clips and alerts to your channels
 ✅ Clip Creation
 ✅ Music Integration
-✅ Mini Games & Economy
+✅ Mini Games & Economy (one shared coin wallet across every game)
 ✅ Installer and one-click updates
 
 > **Two products, one family.** SnapShield is the **Twitch-only desktop app**.
@@ -73,7 +74,8 @@ Unlike traditional Twitch bots, SnapShield combines multiple streaming tools int
 | Local OBS Browser Overlays | ✅ |
 | Twitch EventSub Powered | ✅ |
 | Built‑in Giveaways, Subathon & Counters | ✅ |
-| Built‑in Overlay Games | ✅ |
+| Built‑in Overlay Games with chat betting | ✅ |
+| Live Chat Panel with Widgets | ✅ |
 | Built‑in Mini Games & Economy | ✅ |
 | Discord OAuth Integration (no bot token) | ✅ |
 | Installer + Update Prompt | ✅ |
@@ -92,7 +94,7 @@ Build visual workflows reused across alerts, commands, rewards and the Basic Pla
 | 🖼️ Overlay Media | Images, videos, avatars |
 | 📝 Text Overlay | Styled text with animations |
 | 🔊 Sound | Play audio effects |
-| 🎮 Command | Trigger another command |
+| 🎮 Command | Trigger another command (e.g. auto shout-out the raider on a raid) |
 | 🌐 Discord | Post to your connected Discord channels |
 | 🛡️ Moderation | Warn, timeout, ban |
 | ⏳ Wait | Pause before next action |
@@ -150,27 +152,44 @@ Create **counters**, **timers** and **countdowns** with their own overlays:
 - Banner on/off and overlay selection per item
 
 ### 🐍 Snake Invaders *(overlay game)*
-Chat joins a snake that crawls down the screen while guns shoot at it.
+Chat joins a snake that crawls down the screen while cannons shoot at it.
 - Starts with 4 free sections plus a head, then 1 section per joiner
-- The snake starts at the top and must reach the bottom to win
+- The snake starts at the top and must reach the bottom to win; cannons fire straight up like the arcade classic
 - Each section can show the joiner's **Twitch avatar**, name or both
-- Even a lone joiner has a tiny but real chance
+- Easy / Normal / Hard difficulty and 4 to 6 cannons
+- Everyone who joined wins **Basic Games coins** when the snake wins (amount settable, default 100)
+- Sound effects with an on/off tick box and volume slider
+- Start it with a **channel point reward** or the mod command
 
-### 🏰 SnapDungeon *(overlay game)*
-A Tangia-style chat RPG, started from a channel point redeem:
-- A raid opens for 60 seconds, viewers join with `!sdjoin`
-- Heroes wait on the overlay, then take turns finding items and fighting monsters
-- Lots of enemies and items, with the highest-level gear auto-equipped
-- A fallen hero loses a small amount of XP; survivors return to the waiting area for 20 seconds before it closes
-- Rare pets (a dog fights, a cat finds items)
-- `!sdbag` and `!sdequip` for inventory and gear
-- Upload your own dungeon background and use a transparent background option
+### 🥊 SnapFight *(overlay game)*
+A red fighter and a blue fighter punch, kick and uppercut on your overlay, and chat **bets on the winner**:
+- Start a fight with a **channel point reward**, the `!fight` mod command or the page buttons
+- Bet with `!red` / `!blue`, optionally with an amount (`!red 100`, `!blue all`); **minimum and maximum bet are settings**
+- Best of three rounds with health bars, KOs and a hidden per-fight "form" so the result is a real gamble
+- Fixed-multiplier or shared-pool payouts into the Basic Games wallet; bets are refunded if a fight is stopped
+- Built-in arenas (Arena, Dojo, Neon city), **upload your own background**, or go **transparent**
+- Rename the fighters, change their colours, and enable sound effects
+
+### 🏇 Horse Racing *(overlay game)*
+A virtual race with a proper **betting slip**:
+- Up to nine runners with silks, horse names, jockeys and real fractional odds like `8/1`
+- Bet with `!horse 3 100`; the first three home all pay (1st at the full odds, 2nd and 3rd at a share, all settable)
+- A 30-second race, a rare **photo finish** with a suspenseful wait, a **slow-motion replay** and a podium result screen
+- Your own editable lists of horse names, jockeys, racecourses and race times
+- Starts from a channel point reward, `!race` mod command or the page buttons, with sound effects
 
 ### 🎮 Mini Games & Economy
 - 🎰 Slots • 🪙 Coin Flip • 🎲 High/Low Dice • 🔮 8‑Ball
 - Built‑in economy: `!balance` `!daily` and stats tracking
+- The same coin wallet is used by Snake Invaders, SnapFight and Horse Racing
 
 ---
+
+### 💬 Live Chat Panel
+A chat box on its own page so you can run the stream from SnapShield:
+- Read chat and reply as the **streamer or the bot**
+- Optional **widgets** beside the chat that you can drag, reorder and remove: Basic Player play/stop and skip, Shield mode on/off, an activity feed and more
+- Adjustable chat font size for readability
 
 ### 🎟️ Channel Point Rewards
 Link rewards to Action Chains instantly via EventSub.
@@ -186,6 +205,7 @@ Custom commands with role permissions:
 - Everyone • Subscriber • VIP • Moderator • Broadcaster
 
 Built‑ins: `!uptime` `!followage` `!shoutout` `!discord` `!socials` `!commands`
+Commands live in **Community → Commands**, and any command can be run from an Action Chain (for example, an Incoming Raid alert that runs `!shoutout` for the raider).
 Plus the giveaway, subathon, counter and game commands above.
 
 ---
@@ -193,6 +213,7 @@ Plus the giveaway, subathon, counter and game commands above.
 ### 🛡️ Twitch Moderation
 - Warning systems • Strike ladders • Auto timeouts/bans
 - Banned word filtering • Import/Export • Unlimited custom levels
+- **Global blacklist** check with status notifications (checking, updating, ready, out of date) and a Diagnostics indicator
 
 ---
 
